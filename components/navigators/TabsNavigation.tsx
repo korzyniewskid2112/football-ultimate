@@ -5,6 +5,7 @@ import HomeNavigation from './HomeNavigation';
 import { TabParamList } from '../config/types';
 import FavNavigation from './FavNavigation';
 import CategoryNavigation from './CategoryNavigation';
+import CartNavigation from './CartNavigation';
 
 
 const TabsNavigation = () => {
@@ -19,7 +20,7 @@ const TabsNavigation = () => {
             <Tab.Screen name={'HomeNavigation'} component={HomeNavigation} />
             <Tab.Screen name={'CategoryNavigation'} component={CategoryNavigation} />
             <Tab.Screen name={'FavNavigation'} component={FavNavigation} />
-            <Tab.Screen name={'CartNavigation'} component={FavNavigation} />
+            <Tab.Screen name={'CartNavigation'} component={CartNavigation} />
         </Tab.Navigator>
     )
 

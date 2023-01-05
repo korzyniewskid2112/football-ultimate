@@ -8,37 +8,36 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { HomeParamList, MainParamList, TabParamList } from "./config/types";
 
 const staticCategoryNature: Array<{ id: string, image: string }> = [
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1489275449173-7c7fe1d26f54?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1491466424936-e304919aada7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mnw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1492305175278-3b3afaa2f31f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3w4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1493962621260-74cc5a3baf89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1483729003874-2189d8afad2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
+    { id: 'tWb7IsL9CnY', image: 'https://images.unsplash.com/photo-1489275449173-7c7fe1d26f54?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
+    { id: 'askAk8cXTlg', image: 'https://images.unsplash.com/photo-1491466424936-e304919aada7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mnw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
+    { id: 'G28xPGrogBE', image: 'https://images.unsplash.com/photo-1492305175278-3b3afaa2f31f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3w4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
+    { id: 'askAk8cXTlg', image: 'https://images.unsplash.com/photo-1493962621260-74cc5a3baf89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
+    { id: 'G28xPGrogBE', image: 'https://images.unsplash.com/photo-1483729003874-2189d8afad2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
     { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1490533658566-1855b89cd85f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3w4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
 ];
 
 const staticCategoryPortrait: Array<{ id: string, image: string }> = [
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1504131598085-4cca8500b677?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mnw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
+    { id: 'tWb7IsL9CnY', image: 'https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
+    { id: 'G28xPGrogBE', image: 'https://images.unsplash.com/photo-1504131598085-4cca8500b677?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mnw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
     { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1517269992380-58d48f7101d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3w0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1499557354967-2b2d8910bcca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1504593811423-6dd665756598?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
+    { id: 'tWb7IsL9CnY', image: 'https://images.unsplash.com/photo-1499557354967-2b2d8910bcca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
+    { id: 'G28xPGrogBE', image: 'https://images.unsplash.com/photo-1504593811423-6dd665756598?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
+    { id: 'askAk8cXTlg', image: 'https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' },
 ];
 
 const staticCategoryPhotographer: Array<{ id: string, image: string }> = [
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1616258288682-b428428213f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mnw2MTEyMzd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1561065573-50c31e1e0e77?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHw2MTEyMzd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1622378197331-535545222276?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTF8NjExMjM3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1598051096704-c46b0aa0c5b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTJ8NjExMjM3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1556746228-08014386cfe8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8NjExMjM3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1593507526410-2b9a90c668bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MjR8NjExMjM3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1591422716920-4b60a4debdf1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MjB8NjExMjM3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60' },
-    { id: 'FFHvNDCj3vI', image: 'https://images.unsplash.com/photo-1622842182823-28bfbfba47e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTR8NjExMjM3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60' },
+    { id: 'kellysikkema', image: 'https://images.unsplash.com/profile-1663525621922-0803f7148a58image?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff' },
+    { id: 'anniespratt', image: 'https://images.unsplash.com/profile-1648828806223-1852f704c58aimage?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff' },
+    { id: 'florenciaviadana', image: 'https://images.unsplash.com/profile-1622647595684-2a687164aa4bimage?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff' },
+    { id: 'heftiba', image: 'https://images.unsplash.com/profile-1605780274397-200ea3604d6fimage?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff' },
+    { id: 'venrick', image: 'https://images.unsplash.com/profile-1628113606365-fb9f61a7e316image?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff' },
+    { id: 'nugthan', image: 'https://images.unsplash.com/profile-1604000926394-7b782abcfcd9image?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff' },
+    { id: 'lvenfoto', image: 'https://images.unsplash.com/profile-1670063569010-2c0a5bc558d8image?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff' },
 ];
 
 type HomeNavigationProps = NativeStackScreenProps<HomeParamList, 'Home'>;
 
-const Home = ({navigation} : HomeNavigationProps) => {
+const Home = ({ navigation }: HomeNavigationProps) => {
 
     const colors = getColors();
     const { width } = Dimensions.get('screen');
@@ -47,7 +46,7 @@ const Home = ({navigation} : HomeNavigationProps) => {
         <ScrollViewCustom header={true} spaces={{ left: 0, right: 0 }}>
             <ViewCustom style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 25 }}>
                 <TextCustom size={'huge'} family={'Roboto_700Bold'}>Discover Photo</TextCustom>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Search')}>
                     <FontAwesome name="search" size={26} color={colors.iconBlack} />
                 </TouchableOpacity>
             </ViewCustom>
@@ -75,8 +74,9 @@ const Home = ({navigation} : HomeNavigationProps) => {
                 </ViewCustom>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     {staticCategoryPhotographer.map(({ id, image }, i) => (
-                        <TouchableOpacity 
-                            onPress={() => navigation.navigate('Photographer', {id: id})}
+                        <TouchableOpacity
+                            key={id}
+                            onPress={() => navigation.navigate('Photographer', { id: id, image: image })}
                             style={{ marginRight: i === staticCategoryPhotographer.length - 1 ? 25 : 10, marginLeft: i === 0 ? 25 : 0 }}
                         >
                             <Image
@@ -88,19 +88,21 @@ const Home = ({navigation} : HomeNavigationProps) => {
                 </ScrollView>
             </View>
             <View style={{ marginBottom: 25 }}>
-                <ViewCustom style={{ marginBottom: 15, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-                    <Image
-                        source={{ uri: 'https://images.unsplash.com/photo-1490133286769-d909ac67878e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OXw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' }}
-                        style={{ width: 50, height: 50, borderRadius: 5, marginRight: 10 }}
-                    />
-                    <View>
-                        <TextCustom size={'small'} family={'Roboto_700Bold'}>Nature Collection</TextCustom>
-                        <TextCustom size={'megaSmall'}>7 photo add by Twinkle - 8 minutes ago</TextCustom>
-                    </View>
-                </ViewCustom>
+                <TouchableOpacity onPress={() => navigation.navigate('Collection', { id: '1319040', title: 'Nature' })}>
+                    <ViewCustom style={{ marginBottom: 15, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
+                        <Image
+                            source={{ uri: 'https://images.unsplash.com/photo-1490133286769-d909ac67878e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OXw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' }}
+                            style={{ width: 50, height: 50, borderRadius: 5, marginRight: 10 }}
+                        />
+                        <View>
+                            <TextCustom size={'small'} family={'Roboto_700Bold'}>Nature Collection</TextCustom>
+                            <TextCustom size={'megaSmall'}>7 photo add by Twinkle - 8 minutes ago</TextCustom>
+                        </View>
+                    </ViewCustom>
+                </TouchableOpacity>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     {staticCategoryNature.map(({ image, id }, i) => (
-                        <TouchableOpacity key={id + image} style={{ borderRadius: 15, overflow: 'hidden', marginRight: i === staticCategoryNature.length - 1 ? 25 : 10, marginLeft: i === 0 ? 25 : 0 }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Photo', { id: id })} key={id + image} style={{ borderRadius: 15, overflow: 'hidden', marginRight: i === staticCategoryNature.length - 1 ? 25 : 10, marginLeft: i === 0 ? 25 : 0 }}>
                             <Image
                                 source={{ uri: image }}
                                 style={{ width: width - 80, height: 170 }}
@@ -111,19 +113,21 @@ const Home = ({navigation} : HomeNavigationProps) => {
                 </ScrollView>
             </View>
             <View style={{ marginBottom: 25 }}>
-                <ViewCustom style={{ marginBottom: 15, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-                    <Image
-                        source={{ uri: 'https://images.unsplash.com/photo-1497881807663-38b9a95b7192?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OXw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' }}
-                        style={{ width: 50, height: 50, borderRadius: 5, marginRight: 10 }}
-                    />
-                    <View>
-                        <TextCustom size={'small'} family={'Roboto_700Bold'}>Portrait Collection</TextCustom>
-                        <TextCustom size={'megaSmall'}>2 photo add by Twinkle - 12 minutes ago</TextCustom>
-                    </View>
-                </ViewCustom>
+                <TouchableOpacity onPress={() => navigation.navigate('Collection', { id: '2005243', title: 'Portrait' })}>
+                    <ViewCustom style={{ marginBottom: 15, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
+                        <Image
+                            source={{ uri: 'https://images.unsplash.com/photo-1497881807663-38b9a95b7192?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OXw0YzI0VGdxUWpEWXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60' }}
+                            style={{ width: 50, height: 50, borderRadius: 5, marginRight: 10 }}
+                        />
+                        <View>
+                            <TextCustom size={'small'} family={'Roboto_700Bold'}>Portrait Collection</TextCustom>
+                            <TextCustom size={'megaSmall'}>2 photo add by Twinkle - 12 minutes ago</TextCustom>
+                        </View>
+                    </ViewCustom>
+                </TouchableOpacity>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     {staticCategoryPortrait.map(({ image, id }, i) => (
-                        <TouchableOpacity key={id + image} style={{ borderRadius: 15, overflow: 'hidden', marginRight: i === staticCategoryPortrait.length - 1 ? 25 : 10, marginLeft: i === 0 ? 25 : 0 }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Photo', { id: id })} key={id + image} style={{ borderRadius: 15, overflow: 'hidden', marginRight: i === staticCategoryPortrait.length - 1 ? 25 : 10, marginLeft: i === 0 ? 25 : 0 }}>
                             <Image
                                 source={{ uri: image }}
                                 style={{ width: width - 80, height: 170 }}

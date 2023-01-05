@@ -5,7 +5,7 @@ export const apiValue = {
     client_id: 'Eygz1wyKytw6b_8_WeidUrWthiPiXBRjWyWiIvavsh4',
 }
 
-interface useFetchProps<T> {
+type UseFetchProps<T> = {
     error: boolean,
     errorInfo?: string,
     response: T | null,
@@ -15,7 +15,7 @@ interface useFetchProps<T> {
 }
 
 
-export const useFetch = <T>(action: string): useFetchProps<T> => {
+export const useFetch = <T>(action: string): UseFetchProps<T> => {
 
     const [reload, setReload] = useState<boolean>(false);
     const [dataFetched, setDataFetched] = useState<{
@@ -28,7 +28,7 @@ export const useFetch = <T>(action: string): useFetchProps<T> => {
     const dataFetch = useCallback(async (): Promise<void> => {
         try {
             setDataFetched(prevState => ({ ...prevState, isLoading: true }));
-            const response = await fetch(apiValue.apiLink + action+ '/?' +new URLSearchParams({ client_id: apiValue.client_id}));
+            const response = await fetch(apiValue.apiLink + action+ '/?' + new URLSearchParams({ client_id: apiValue.client_id}));
             if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
             const jsonResponse = await response.json();
             setDataFetched(prevState => ({ ...prevState, response: jsonResponse, isLoading: false, error: false }));
