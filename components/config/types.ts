@@ -1,6 +1,6 @@
 export type TabParamList = {
     CategoryNavigation: undefined,
-    HomeNavigation: undefined,
+    HomeNavigation: undefined | {screen: 'Home'},
     FavNavigation: undefined,
     CartNavigation: undefined
 }
@@ -18,7 +18,7 @@ export type FavParamList = GlobalParamList & {
 }
 
 export type MainParamList = {
-    TabsNavigation: undefined | {screen: 'MainNavigation'},
+    TabsNavigation: undefined,
     PaymentDemo: Array<{id: string, image: string}>,
 }
 

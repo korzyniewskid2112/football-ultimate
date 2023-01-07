@@ -6,11 +6,11 @@ import ScrollViewCustom from "./customs/ScrollViewCustom"
 import TextCustom from "./customs/TextCustom";
 import ViewCustom from "./customs/ViewCustom";
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useAppSelector } from "../redux/hooks";
 import { useDispatch } from "react-redux";
 import { removeCart } from "../redux/action";
-import { CompositeScreenProps } from "@react-navigation/native";
+import { CompositeScreenProps, useFocusEffect } from "@react-navigation/native";
 
 
 type CartNavigationProps = CompositeScreenProps<
@@ -18,12 +18,12 @@ type CartNavigationProps = CompositeScreenProps<
     NativeStackScreenProps<MainParamList>
 >;
 
-const Cart = ({navigation} : CartNavigationProps) => {
+const Cart = ({ navigation }: CartNavigationProps) => {
 
     const { width } = Dimensions.get('screen');
     const colors = getColors();
     const banerSize = ((width / 2) - 30);
-    const [basket, setBasket] = useState<Array<{id: string, image: string}>>([]);
+    const [basket, setBasket] = useState<Array<{ id: string, image: string }>>([]);
     const { cart } = useAppSelector(element => element.cartValues);
     const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ const Cart = ({navigation} : CartNavigationProps) => {
         const exist = tempBasket.find(element => element.id === id);
 
         if (exist == undefined) {
-            setBasket([...tempBasket, {id: id, image: image}]);
+            setBasket([...tempBasket, { id: id, image: image }]);
         } else {
             tempBasket.splice(tempBasket.findIndex((element) => (element.id == id)), 1);
             setBasket([...tempBasket]);
@@ -53,11 +53,13 @@ const Cart = ({navigation} : CartNavigationProps) => {
         return status;
     }
 
-    useEffect(() => {
-        return (() => {
-            setBasket([]);
-        })
-    }, [])
+    useFocusEffect(
+        useCallback(() => {
+            return (() => {
+                setBasket([]);
+            })
+        }, [])
+    )
 
     return (
         <View style={{ flex: 1 }}>
