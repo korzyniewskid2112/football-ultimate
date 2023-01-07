@@ -6,6 +6,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import ViewCustom from "./customs/ViewCustom";
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { HomeParamList, MainParamList, TabParamList } from "./config/types";
+import { useAppSelector } from "../redux/hooks";
 
 const staticCategoryNature: Array<{ id: string, image: string }> = [
     { id: 'tWb7IsL9CnY', image: 'https://images.unsplash.com/photo-1489275449173-7c7fe1d26f54?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw4NTYyNjl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' },
@@ -41,6 +42,7 @@ const Home = ({ navigation }: HomeNavigationProps) => {
 
     const colors = getColors();
     const { width } = Dimensions.get('screen');
+    const { photo } = useAppSelector(element => element.photoValues);
 
     return (
         <ScrollViewCustom header={true} spaces={{ left: 0, right: 0 }}>
@@ -87,6 +89,26 @@ const Home = ({ navigation }: HomeNavigationProps) => {
                     ))}
                 </ScrollView>
             </View>
+            {photo.length > 0 && (
+                <View style={{marginBottom: 25}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Collection', { id: '2005243', title: 'Portrait' })}>
+                        <ViewCustom style={{ marginBottom: 15, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
+                            <TextCustom size={'extraLarge'} family={'Roboto_700Bold'}>Recently viewed photos</TextCustom>
+                        </ViewCustom>
+                    </TouchableOpacity>
+                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                        {photo.map(({ image, id }, i) => (
+                            <TouchableOpacity onPress={() => navigation.navigate('Photo', { id: id })} key={id + image} style={{ borderRadius: 15, overflow: 'hidden', marginRight: i === staticCategoryPortrait.length - 1 ? 25 : 10, marginLeft: i === 0 ? 25 : 0 }}>
+                                <Image
+                                    source={{ uri: image }}
+                                    style={{ width: width - 80, height: 170 }}
+                                    resizeMode={'cover'}
+                                />
+                            </TouchableOpacity>
+                        ))}
+                    </ScrollView>
+                </View>
+            )}
             <View style={{ marginBottom: 25 }}>
                 <TouchableOpacity onPress={() => navigation.navigate('Collection', { id: '1319040', title: 'Nature' })}>
                     <ViewCustom style={{ marginBottom: 15, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>

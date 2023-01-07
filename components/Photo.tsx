@@ -1,15 +1,18 @@
-import { View, Image, Dimensions, TouchableOpacity, Text } from "react-native";
+import { View, Image, Dimensions, TouchableOpacity, Text, Modal } from "react-native";
 import getColors from "./config/const";
 import ScrollViewCustom from "./customs/ScrollViewCustom";
 import TextCustom from "./customs/TextCustom";
 import ViewCustom from "./customs/ViewCustom";
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { GlobalParamList } from "./config/types";
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useFetch } from "./config/api";
 import LoadingSplash from "./LoadingSplash";
 import ErrorSplash from "./ErrorSplash";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { addCart, addFav, addPhotos } from "../redux/action";
+import { useEffect, useState } from "react";
 
 type PhotoFetchProps = {
     id: string,
@@ -27,7 +30,7 @@ type PhotoFetchProps = {
             medium: string,
         }
     },
-  
+
 }
 
 type PhotoNavigationProps = NativeStackScreenProps<GlobalParamList, 'Photo'>
@@ -37,22 +40,48 @@ const Photo = ({ navigation, route: { params: { id } } }: PhotoNavigationProps) 
     const { width } = Dimensions.get('screen');
     const colors = getColors();
     const { top } = useSafeAreaInsets();
+    const dispatch = useAppDispatch();
+    const [modalVisible, setModalVisible] = useState<boolean>(false);
 
     const { response, error, errorInfo, reload, setReload, isLoading } = useFetch<PhotoFetchProps>('photos/' + id);
 
-    const addCart = (id: string): void => {
-        console.log('dw');
+    const handleAddCart = (id: string, image: string): void => {
+        setModalVisible(true);
+        dispatch(addCart(id, image));
+        setTimeout(() => {
+            setModalVisible(false);
+        }, 1000);
     }
 
-    const addFav = (id: string): void => {
-        console.log('fac');
+    const handleAddFav = (id: string, image: string): void => {
+        dispatch(addFav(id, image));
     }
+
+    useEffect(() => {
+        if (response && response.id.length > 0) {
+            dispatch(addPhotos(id, response.urls.regular));
+        }
+    }, [response]);
+
 
     return (
         isLoading
             ? <LoadingSplash />
             : !error && response && response.id.length > 0
                 ? <View style={{ flex: 1, position: 'relative' }}>
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={modalVisible}
+                        statusBarTranslucent={true}
+                    >
+                        <View style={{flex: 1, backgroundColor: colors.main, opacity: 0.8, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                        <View style={{ marginBottom: 20 }}>
+                            <Feather name="check-circle" size={70} color={colors.iconWhite} />
+                        </View>
+                        <TextCustom color={colors.iconWhite} size={'extraLarge'}>ADDED TO CART</TextCustom>
+                        </View>
+                    </Modal>
                     <ScrollViewCustom spaces={{ left: 0, right: 0 }} reload={reload} setReload={setReload}>
                         <View style={{ paddingBottom: 50 }}>
                             <View style={{ marginBottom: 30, position: 'relative' }}>
@@ -64,7 +93,7 @@ const Photo = ({ navigation, route: { params: { id } } }: PhotoNavigationProps) 
                                     <TouchableOpacity onPress={() => navigation.goBack()}>
                                         <Ionicons name="ios-chevron-back-sharp" size={30} color={colors.iconWhite} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => addCart(id)}>
+                                    <TouchableOpacity onPress={() => handleAddFav(response.id, response.urls.regular)}>
                                         <MaterialCommunityIcons name="heart-outline" size={30} color={colors.iconWhite} />
                                     </TouchableOpacity>
                                 </ViewCustom>
@@ -80,7 +109,7 @@ const Photo = ({ navigation, route: { params: { id } } }: PhotoNavigationProps) 
                                 </ViewCustom>
                             </View>
                             <ViewCustom>
-                                <View style={{marginBottom: 15}}>
+                                <View style={{ marginBottom: 15 }}>
                                     <TextCustom size={'huge'} family={'Roboto_700Bold'} customStyles={{ textAlign: 'center', marginBottom: 10 }}>{response.alt_description}</TextCustom>
                                     <TextCustom family={'Roboto_300Light'}>{response.description}</TextCustom>
                                 </View>
@@ -99,7 +128,7 @@ const Photo = ({ navigation, route: { params: { id } } }: PhotoNavigationProps) 
                         </View>
                     </ScrollViewCustom>
                     <TouchableOpacity
-                        onPress={() => addCart(id)}
+                        onPress={() => handleAddCart(id, response.urls.regular)}
                         style={{ backgroundColor: colors.main, padding: 10, borderRadius: 10, position: 'absolute', bottom: 20, left: 25, right: 25 }}
                     >
                         <TextCustom customStyles={{ textAlign: 'center' }} size={'regular'} family={'Roboto_300Light'} color={colors.textWhite}>Add photo</TextCustom>

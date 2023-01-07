@@ -18,7 +18,8 @@ export type FavParamList = GlobalParamList & {
 }
 
 export type MainParamList = {
-    TabsNavigation: undefined,
+    TabsNavigation: undefined | {screen: 'MainNavigation'},
+    PaymentDemo: Array<{id: string, image: string}>,
 }
 
 export type CartParamList = GlobalParamList & {

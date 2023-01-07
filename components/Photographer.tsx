@@ -11,6 +11,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useFetch } from "./config/api";
 import LoadingSplash from "./LoadingSplash";
 import ErrorSplash from "./ErrorSplash";
+import { useAppDispatch } from "../redux/hooks";
+import { addFav } from "../redux/action";
 
 type PhotographerFetchProps = {
     id: string,
@@ -31,6 +33,11 @@ const Photographer = ({ navigation, route: { params: { id, image } } }: Photogra
     const colors = getColors();
     const { width } = Dimensions.get('screen');
     const { top } = useSafeAreaInsets();
+    const dispatch = useAppDispatch();
+
+    const handleAddFav = (id: string, image: string): void => {
+        dispatch(addFav(id, image));
+    } 
 
     return (
         isLoading
@@ -66,7 +73,7 @@ const Photographer = ({ navigation, route: { params: { id, image } } }: Photogra
                                     resizeMode={'cover'}
                                 />
                                 <View style={{ position: 'absolute', top: 10, right: 10 }}>
-                                    <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                    <TouchableOpacity onPress={() => handleAddFav(id, image)} style={{ flexDirection: 'row', alignItems: 'center' }}>
                                         <MaterialCommunityIcons name="heart-outline" size={24} color={colors.iconWhite} />
                                         <TextCustom customStyles={{ marginLeft: 5 }} size={'regular'} color={colors.textWhite} family={'Roboto_500Medium'}>{likes}</TextCustom>
                                     </TouchableOpacity>

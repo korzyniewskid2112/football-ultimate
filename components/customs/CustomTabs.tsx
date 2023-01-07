@@ -4,6 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import getColors, { fonts } from './../config/const';
 import { useState } from 'react';
+import TextCustom from './TextCustom';
 
 const CustomTabs = ({ state, descriptors, navigation }: BottomTabBarProps) => {
 
@@ -57,6 +58,11 @@ const CustomTabs = ({ state, descriptors, navigation }: BottomTabBarProps) => {
                             {icon}
                             {isFocused && (
                                 <View style={{position: 'absolute', bottom: -5, left: 2, right: 2, height: 2, backgroundColor: colors.tabBarIconActive, borderRadius: 60}}></View>
+                            )}
+                             {tabBarBadge && tabBarBadge > 0 && (
+                                <View style={[styles.tabBarBadge, { backgroundColor: colors.main }]}>
+                                    <TextCustom color={colors.textWhite}>{tabBarBadge}</TextCustom>
+                                </View>
                             )}
                         </TouchableOpacity>
                     );
